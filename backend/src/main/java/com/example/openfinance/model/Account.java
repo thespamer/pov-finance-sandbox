@@ -2,7 +2,6 @@ package com.example.openfinance.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @Entity

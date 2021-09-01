@@ -13,9 +13,10 @@ public class AccountController {
     private AccountService accountService;
 
     @GetMapping("/{accountNumber}/balance")
+
     public ResponseEntity<Double> getBalance(@PathVariable String accountNumber) {
         Account account = accountService.getAccountByNumber(accountNumber);
-        return ResponseEntity.ok(account.getBalance());
+        return ResponseEntity.ok(account.getBalance().doubleValue());
     }
 
     @PostMapping("/{accountNumber}/deposit")

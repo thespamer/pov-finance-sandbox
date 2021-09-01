@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug Spring Boot App",
+            "request": "launch",
+            "mainClass": "com.example.openfinance.PovfinanceBackendApplication", // Update with your main class
+            "projectName": "povfinance-backend", // Update with your project name
+            "args": "",
+            "env": {}
+        }
+    ]
+}
