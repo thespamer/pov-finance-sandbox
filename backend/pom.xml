@@ -58,7 +58,12 @@
 
     <build>
         <plugins>
-            <!-- Add Maven plugins here -->
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.6.2</version> <!-- Match this with your Spring Boot version -->
+            </plugin>
         </plugins>
     </build>
 
