@@ -1,1 +1,34 @@
 ./frontend/node_modules
+
+# Maven build directory
+/target/
+
+# Eclipse specific files
+*.classpath
+*.project
+*.settings/
+
+# IntelliJ IDEA specific files
+*.iml
+.idea/
+
+# NetBeans specific files
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Dependency reduced POM (if using the Maven Shade plugin)
+/dependency-reduced-pom.xml
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
