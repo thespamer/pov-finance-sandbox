@@ -1,3 +1,11 @@
+package com.example.openfinance.controller;
+
+import com.example.openfinance.model.Account;
+import com.example.openfinance.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {

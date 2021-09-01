@@ -1,5 +1,13 @@
+package com.example.openfinance.service;
+
+import com.example.openfinance.model.Account;
+import com.example.openfinance.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 @Service
 public class AccountService {
+
     @Autowired
     private AccountRepository accountRepository;
 

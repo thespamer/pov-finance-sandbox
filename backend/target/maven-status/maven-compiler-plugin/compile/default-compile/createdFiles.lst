@@ -1,0 +1,4 @@
+com\example\openfinance\model\Account.class
+com\example\openfinance\repository\AccountRepository.class
+com\example\openfinance\service\AccountService.class
+com\example\openfinance\controller\AccountController.class
