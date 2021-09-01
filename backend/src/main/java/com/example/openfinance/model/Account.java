@@ -2,20 +2,23 @@ package com.example.openfinance.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Column;
+import java.math.BigDecimal;
 
 @Entity
 public class Account {
 
     @Id
     private Long id;
+
     private String accountNumber;
-    private double balance;
 
-    // Constructors, getters, and setters
+    private BigDecimal balance; // Using BigDecimal for balance
 
-    public Account() {}
+    public Account() {
+    }
 
-    public Account(Long id, String accountNumber, double balance) {
+    public Account(Long id, String accountNumber, BigDecimal balance) {
         this.id = id;
         this.accountNumber = accountNumber;
         this.balance = balance;
@@ -37,11 +40,11 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 }
