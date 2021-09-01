@@ -1,0 +1,250 @@
+
+openapi: 3.0.0
+info:
+  title: Open Finance Project API
+  description: API documentation for the Open Finance Project integrated with the Open Bank Project (OBP-API).
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+
+paths:
+  /obp/v4.0.0/banks:
+    get:
+      summary: Get Banks
+      description: Returns a list of all banks available.
+      responses:
+        '200':
+          description: A list of banks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: gh.29.uk
+                    short_name:
+                      type: string
+                      example: OBP Bank
+                    full_name:
+                      type: string
+                      example: Open Bank Project Bank
+                    logo:
+                      type: string
+                      example: http://example.com/logo.png
+                    website:
+                      type: string
+                      example: http://example.com
+
+  /obp/v4.0.0/banks/{bank_id}/accounts/{account_id}/balances:
+    get:
+      summary: Get Account Balance
+      description: Returns the balance of a specific account.
+      parameters:
+        - name: bank_id
+          in: path
+          required: true
+          description: The ID of the bank.
+          schema:
+            type: string
+        - name: account_id
+          in: path
+          required: true
+          description: The ID of the account.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The balance of the account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  currency:
+                    type: string
+                    example: EUR
+                  amount:
+                    type: string
+                    example: "1234.56"
+
+  /api/accounts/{accountNumber}/balance:
+    get:
+      summary: Get Account Balance (Custom Endpoint)
+      description: Returns the balance for a given account in your Open Finance project.
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          description: The account number.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The balance of the account.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: number
+                    example: 1000.0
+
+  /api/accounts/{accountNumber}/deposit:
+    post:
+      summary: Deposit to Account
+      description: Deposits a specified amount to an account.
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          description: The account number.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  description: Amount to deposit.
+                  example: 500
+      responses:
+        '200':
+          description: The updated account after the deposit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  accountNumber:
+                    type: string
+                    example: "123456"
+                  balance:
+                    type: number
+                    example: 1500.0
+
+  /api/accounts/{accountNumber}/transactions:
+    get:
+      summary: List Transactions
+      description: Returns a list of transactions for a specific account.
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          description: The account number.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of transactions for the account.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    transactionId:
+                      type: integer
+                      example: 1
+                    type:
+                      type: string
+                      example: DEPOSIT
+                    amount:
+                      type: number
+                      example: 500.0
+                    date:
+                      type: string
+                      format: date-time
+                      example: "2024-08-31T12:34:56"
+                    accountNumber:
+                      type: string
+                      example: "123456"
+
+  /api/accounts/{accountNumber}/share:
+    post:
+      summary: Share Account Information
+      description: Shares account information with another financial institution.
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          description: The account number.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                institutionId:
+                  type: string
+                  example: "789012"
+                permissions:
+                  type: array
+                  items:
+                    type: string
+                  example: ["BALANCE", "TRANSACTIONS"]
+      responses:
+        '200':
+          description: Information sharing status.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Information shared with institution 789012
+
+  /api/accounts/{accountNumber}/revoke-share:
+    delete:
+      summary: Revoke Information Sharing
+      description: Revokes previously shared account information with a financial institution.
+      parameters:
+        - name: accountNumber
+          in: path
+          required: true
+          description: The account number.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                institutionId:
+                  type: string
+                  example: "789012"
+      responses:
+        '200':
+          description: Information sharing revocation status.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Information sharing revoked for institution 789012
