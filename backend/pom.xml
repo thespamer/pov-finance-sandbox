@@ -13,8 +13,8 @@
     <description>A project for Open Finance backend services</description>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -37,6 +37,7 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>3.3.3</version>
         </dependency>
+        
 
         <!-- PostgreSQL JDBC Driver -->
         <dependency>
@@ -44,12 +45,6 @@
             <artifactId>postgresql</artifactId>
             <version>42.7.4</version>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>6.6.0.Final</version>
         </dependency>
 
         <dependency>
@@ -62,7 +57,7 @@
         <dependency>
     <groupId>jakarta.persistence</groupId>
     <artifactId>jakarta.persistence-api</artifactId>
-    <version>2.2.1</version>
+    <version>3.1.0</version>
 </dependency>
 
 
@@ -109,8 +104,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>3.3.3</version>
-            <scope>test</scope>
+            <scope>tesßt</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId> 
+            <artifactId>hibernate-core</artifactId>
+            <version>6.2.6.Final</version> <!--- Check for the latest compatible version -->
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -121,8 +122,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <source>22</source>
+                    <target>22</target>
                 </configuration>
             </plugin>
 
