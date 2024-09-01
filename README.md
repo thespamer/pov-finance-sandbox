@@ -17,7 +17,7 @@ The frontend is a simple React application that interacts with the backend APIs.
 ### How to Run
 1. Navigate to the `frontend` directory.
 2. Run `npm install` to install dependencies.
-3. Run `npm start` to start the application.
+3. Run `npm start` to start the application. Check for (NODE_OPTIONS=--openssl-legacy-provider npm start) for engines newer than v8.
 
 ## Testing
 Scripts are provided in the `scripts` directory to test the API endpoints using curl.
