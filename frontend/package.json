@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "axios": "latest",
+    "axios": "^1.7.7",
     "open-finance-frontend": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
