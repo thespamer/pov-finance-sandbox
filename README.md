@@ -1,4 +1,4 @@
-# My Open Finance Project
+# My Open Finance Sandbox
 This is a simple Open Finance project that demonstrates the implementation of a basic banking service with balance inquiry, deposits, and account management.
 
 ## Backend
